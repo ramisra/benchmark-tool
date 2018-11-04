@@ -18,7 +18,7 @@ public class VoltDb
     			clientConfig.setTopologyChangeAware(true);
     		    client = ClientFactory.createClient(clientConfig);       
   
-    		    client.createConnection("ec2-35-154-18-4.ap-south-1.compute.amazonaws.com");
+    		    client.createConnection("");
     		    int i =2;
     		    final long startTime = System.currentTimeMillis();
     		    for(; i< 1000; i ++ ) {
