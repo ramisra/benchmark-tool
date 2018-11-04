@@ -18,11 +18,11 @@ public class DbFrameWork
     			clientConfig.setTopologyChangeAware(true);
     		    client = ClientFactory.createClient(clientConfig);       
   
-    		    client.createConnection("ec2-35-154-18-4.ap-south-1.compute.amazonaws.com");
+    		    client.createConnection("");
     		    int i =2;
     		    final long startTime = System.currentTimeMillis();
     		    for(; i< 10000000; i ++ ) {
-    		    		client.callProcedure("CUSTOMER.insert",i,givenUsingPlainJava_whenGeneratingRandomStringBounded_thenCorrect(),givenUsingPlainJava_whenGeneratingRandomStringBounded_thenCorrect() );
+    		    		client.callProcedure("CUSTOMER.select",i,givenUsingPlainJava_whenGeneratingRandomStringBounded_thenCorrect(),givenUsingPlainJava_whenGeneratingRandomStringBounded_thenCorrect() );
     		    }
     		    final long endTime = System.currentTimeMillis();
     		    System.out.println("Total execution time: " + (endTime - startTime) );
