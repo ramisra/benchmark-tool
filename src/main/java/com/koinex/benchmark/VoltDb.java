@@ -1,4 +1,4 @@
-package com.koinex.dbFrameWork;
+package com.koinex.benchmark;
 
 import java.util.Random;
 
@@ -7,7 +7,7 @@ import org.voltdb.client.Client;
 import org.voltdb.client.ClientConfig;
 import org.voltdb.client.ClientFactory;
 
-public class DbFrameWork 
+public class VoltDb 
 {
     public static void main( String[] args )
     {
@@ -18,16 +18,17 @@ public class DbFrameWork
     			clientConfig.setTopologyChangeAware(true);
     		    client = ClientFactory.createClient(clientConfig);       
   
-    		    client.createConnection("");
+    		    client.createConnection("ec2-35-154-18-4.ap-south-1.compute.amazonaws.com");
     		    int i =2;
     		    final long startTime = System.currentTimeMillis();
-    		    for(; i< 10000000; i ++ ) {
-    		    		client.callProcedure("CUSTOMER.select",i,givenUsingPlainJava_whenGeneratingRandomStringBounded_thenCorrect(),givenUsingPlainJava_whenGeneratingRandomStringBounded_thenCorrect() );
+    		    for(; i< 1000; i ++ ) {
+    		    		VoltTable [] result = client.callProcedure("CUSTOMER.select",i ).getResults();
+    		    		System.out.println(result[0]);
     		    }
     		    final long endTime = System.currentTimeMillis();
     		    System.out.println("Total execution time: " + (endTime - startTime) );
     		    System.out.println("Total Customer inserted :" + i );
-    		    
+    		    client.close();
     		}catch(Exception e) {
     			  e.printStackTrace();
     		      System.exit(-1);

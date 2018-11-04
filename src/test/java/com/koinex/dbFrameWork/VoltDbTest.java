@@ -7,7 +7,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class DbFrameWorkTest 
+public class VoltDbTest 
     extends TestCase
 {
     /**
@@ -15,7 +15,7 @@ public class DbFrameWorkTest
      *
      * @param testName name of the test case
      */
-    public DbFrameWorkTest( String testName )
+    public VoltDbTest( String testName )
     {
         super( testName );
     }
@@ -25,7 +25,7 @@ public class DbFrameWorkTest
      */
     public static Test suite()
     {
-        return new TestSuite( DbFrameWorkTest.class );
+        return new TestSuite( VoltDbTest.class );
     }
 
     /**
